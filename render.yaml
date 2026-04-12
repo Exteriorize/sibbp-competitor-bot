@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: sibbp-competitor-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: CHAT_ID
+        sync: false
+      - key: BASE_URL
+        value: https://sibbp.ru/
+      - key: REQUEST_TIMEOUT
+        value: "30"
